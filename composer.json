@@ -1,0 +1,25 @@
+{
+  "name": "bytic/codeception",
+  "type": "library",
+  "description": "Php Framework",
+  "homepage": "https://github.com/ByTIC/Codeception",
+  "keywords": [ "bytic", "codeception" ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gabriel Solomon",
+      "email": "hello@gabrielsolomon.ro"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Bytic\\": "src"
+    }
+  },
+  "require": {
+    "php": "^7.0",
+    "codeception/codeception": "^2.3"
+  },
+  "require-dev": {
+  }
+}
