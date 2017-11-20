@@ -3,7 +3,10 @@
   "type": "library",
   "description": "Php Framework",
   "homepage": "https://github.com/ByTIC/Codeception",
-  "keywords": [ "bytic", "codeception" ],
+  "keywords": [
+    "bytic",
+    "codeception"
+  ],
   "license": "MIT",
   "authors": [
     {
@@ -13,12 +16,13 @@
   ],
   "autoload": {
     "psr-4": {
-      "Bytic\\": "src"
+      "ByTIC\\Codeception\\Page\\": "src/_support"
     }
   },
   "require": {
     "php": "^7.0",
-    "codeception/codeception": "^2.3"
+    "codeception/codeception": "^2.3",
+    "codeception/mockery-module": "^0.2"
   },
   "require-dev": {
   }
