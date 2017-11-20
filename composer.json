@@ -16,7 +16,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "ByTIC\\Codeception\\Page\\": "src/_support"
+      "ByTIC\\Codeception\\Page\\": "src/_support/Page"
     }
   },
   "require": {
