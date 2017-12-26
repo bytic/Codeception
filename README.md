@@ -6,7 +6,7 @@
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Build Status](https://img.shields.io/travis/ByTIC/codeception/master.svg?style=flat-square)](https://travis-ci.org/ByTIC/codeception)
-[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/8a01a999-e914-4ab8-946c-df33f1c02675.svg?style=flat-square)](https://insight.sensiolabs.com/projects/8a01a999-e914-4ab8-946c-df33f1c02675)
+[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/80fdb6cf-ae98-46da-9a88-e36e49f8ea11.svg?style=flat-square)](https://insight.sensiolabs.com/projects/80fdb6cf-ae98-46da-9a88-e36e49f8ea11)
 [![Quality Score](https://img.shields.io/scrutinizer/g/bytic/codeception.svg?style=flat-square)](https://scrutinizer-ci.com/g/bytic/codeception)
-[![StyleCI](https://styleci.io/repos/58126876/shield?branch=master)](https://styleci.io/repos/58126876)
+[![StyleCI](https://styleci.io/repos/110684482/shield?branch=master)](https://styleci.io/repos/110684482)
 [![Total Downloads](https://img.shields.io/packagist/dt/bytic/codeception.svg?style=flat-square)](https://packagist.org/packages/bytic/codeception)

@@ -27,11 +27,11 @@ abstract class AbstractPage
     }
 
     /**
-     * @var \KM42\Register\Tests\AcceptanceTester;
+     * @var \Codeception\Actor;
      */
     protected $acceptanceTester;
 
-    public function __construct(AcceptanceTester $I)
+    public function __construct(\Codeception\Actor $I)
     {
         $this->acceptanceTester = $I;
 
@@ -43,7 +43,7 @@ abstract class AbstractPage
     }
 
     /**
-     * @return \KM42\Register\Tests\AcceptanceTester;
+     * @return \Codeception\Actor;
      */
     protected function getTester()
     {
