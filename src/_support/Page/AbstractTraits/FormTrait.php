@@ -52,7 +52,7 @@ trait FormTrait
     }
 
     /**
-     * @return AcceptanceTrait|Acceptance;
+     * @return AcceptanceTrait|\Codeception\Actor;
      */
     abstract protected function getTester();
 
@@ -189,8 +189,7 @@ trait FormTrait
      */
     public function getFormData($name = null)
     {
-        $name = $this->initFormName($name);
-        return isset($this->formData[$name]) ? $this->formData[$name] : [];
+        return $this->formData;
     }
 
     /**
