@@ -2,6 +2,9 @@
 
 namespace ByTIC\Codeception\Page\AbstractTraits;
 
+use ByTIC\Codeception\Helper\AcceptanceTrait;
+use Codeception\Template\Acceptance;
+
 /**
  * Class FormTrait
  * @package ByTIC\Codeception\Page\AbstractTraits
@@ -49,7 +52,7 @@ trait FormTrait
     }
 
     /**
-     * @return \ByTIC\Common\Tests\AcceptanceTester;
+     * @return AcceptanceTrait|Acceptance;
      */
     abstract protected function getTester();
 
@@ -178,6 +181,16 @@ trait FormTrait
     public function setFieldFormData($name, $value)
     {
         $this->formData[$name] = $value;
+    }
+
+    /**
+     * @param null $name
+     * @return array
+     */
+    public function getFormData($name = null)
+    {
+        $name = $this->initFormName($name);
+        return isset($this->formData[$name]) ? $this->formData[$name] : [];
     }
 
     /**
