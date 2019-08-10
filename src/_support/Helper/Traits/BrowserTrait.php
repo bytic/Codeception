@@ -57,4 +57,27 @@ trait BrowserTrait
     {
         return $this->getBrowserModule()->_getCurrentUri();
     }
+
+
+    /**
+     * @return mixed
+     * @throws \Codeception\Exception\ModuleException
+     */
+    public function getCurrentUrl()
+    {
+        return $this->getBrowserModule()->client->getHistory()->current()->getUri();
+    }
+
+
+    /**
+     * @param $expected
+     *
+     * @throws \Codeception\Exception\ModuleException
+     */
+    public function seeFullUrlEquals($expected)
+    {
+        $url = $this->getCurrentUrl();
+
+        $this->assertEquals($expected, $url);
+    }
 }
