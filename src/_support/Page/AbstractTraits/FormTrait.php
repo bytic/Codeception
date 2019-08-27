@@ -11,7 +11,6 @@ use Codeception\Template\Acceptance;
  */
 trait FormTrait
 {
-
     protected $forms = [];
 
     protected $formNameDefault = 'default';
