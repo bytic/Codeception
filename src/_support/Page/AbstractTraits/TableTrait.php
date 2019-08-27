@@ -8,7 +8,6 @@ namespace ByTIC\Codeception\Page\AbstractTraits;
  */
 trait TableTrait
 {
-
     protected $tableLinks = null;
 
     public function checkTable()

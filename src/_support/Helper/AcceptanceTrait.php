@@ -11,5 +11,4 @@ trait AcceptanceTrait
     use Traits\QueryTrait;
     use Traits\FixturesTrait;
     use Traits\BrowserTrait;
-
 }
