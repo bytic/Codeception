@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2d05a83d6e03e4a5e2f6de28b45bd225",
+    "content-hash": "142719a828997eda1bcf72596fe487a3",
     "packages": [
         {
             "name": "behat/gherkin",
@@ -159,20 +159,20 @@
         },
         {
             "name": "codeception/mockery-module",
-            "version": "0.2.3",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/MockeryModule.git",
-                "reference": "d01f9d0c52cf4fa87c789c65191027a0d434bd3d"
+                "reference": "19cc51ae4123031d7c93c56a9abbde40697dbc24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/MockeryModule/zipball/d01f9d0c52cf4fa87c789c65191027a0d434bd3d",
-                "reference": "d01f9d0c52cf4fa87c789c65191027a0d434bd3d",
+                "url": "https://api.github.com/repos/Codeception/MockeryModule/zipball/19cc51ae4123031d7c93c56a9abbde40697dbc24",
+                "reference": "19cc51ae4123031d7c93c56a9abbde40697dbc24",
                 "shasum": ""
             },
             "require": {
-                "codeception/codeception": "^2.0",
+                "codeception/codeception": "^2.0|^3.0",
                 "mockery/mockery": "^0.8|^0.9|^1.0"
             },
             "type": "library",
@@ -196,7 +196,7 @@
                 }
             ],
             "description": "Mockery Module for Codeception",
-            "time": "2017-10-10T16:22:46+00:00"
+            "time": "2019-04-26T19:47:46+00:00"
         },
         {
             "name": "codeception/phpunit-wrapper",
@@ -625,16 +625,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "1.0",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "1bac8c362b12f522fdd1f1fa3556284c91affa38"
+                "reference": "4eff936d83eb809bde2c57a3cea0ee9643769031"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/1bac8c362b12f522fdd1f1fa3556284c91affa38",
-                "reference": "1bac8c362b12f522fdd1f1fa3556284c91affa38",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/4eff936d83eb809bde2c57a3cea0ee9643769031",
+                "reference": "4eff936d83eb809bde2c57a3cea0ee9643769031",
                 "shasum": ""
             },
             "require": {
@@ -643,7 +643,7 @@
                 "php": ">=5.6.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~5.7|~6.1"
+                "phpunit/phpunit": "~5.7.10|~6.5|~7.0|~8.0"
             },
             "type": "library",
             "extra": {
@@ -672,8 +672,8 @@
                     "homepage": "http://davedevelopment.co.uk"
                 }
             ],
-            "description": "Mockery is a simple yet flexible PHP mock object framework for use in unit testing with PHPUnit, PHPSpec or any other testing framework. Its core goal is to offer a test double framework with a succinct API capable of clearly defining all possible object operations and interactions using a human readable Domain Specific Language (DSL). Designed as a drop in alternative to PHPUnit's phpunit-mock-objects library, Mockery is easy to integrate with PHPUnit and can operate alongside phpunit-mock-objects without the World ending.",
-            "homepage": "http://github.com/mockery/mockery",
+            "description": "Mockery is a simple yet flexible PHP mock object framework",
+            "homepage": "https://github.com/mockery/mockery",
             "keywords": [
                 "BDD",
                 "TDD",
@@ -686,7 +686,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2017-10-06T16:20:43+00:00"
+            "time": "2019-08-07T15:01:07+00:00"
         },
         {
             "name": "myclabs/deep-copy",
