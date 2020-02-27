@@ -22,7 +22,7 @@
   },
   "require": {
     "php": "^7.0",
-    "codeception/codeception": "^3.0",
+    "codeception/codeception": "^4.0",
     "codeception/mockery-module": "^0.4",
     "codeception/specify": "^1.0",
     "codeception/verify": "^1.0"
