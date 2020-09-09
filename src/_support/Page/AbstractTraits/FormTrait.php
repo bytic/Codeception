@@ -61,8 +61,8 @@ trait FormTrait
      */
     public function setFieldsAndsubmitForm($params = [], $name = null)
     {
-        foreach ($this->formData as $field => $value) {
-            $value = isset($params[$field]) ? $params[$field] : $value;
+        $params = array_merge($this->formData, $params);
+        foreach ($params as $field => $value) {
             $this->setFieldValue($field, $value);
         }
         $this->submitForm($name);
