@@ -21,12 +21,13 @@
     }
   },
   "require": {
-    "php": "^7.0",
+    "php": "^7.0|^8.0",
     "codeception/codeception": "^3.0",
     "codeception/mockery-module": "^0.4",
     "codeception/specify": "^1.0",
     "codeception/verify": "^1.0"
   },
   "require-dev": {
+    "symfony/filesystem": "^4.0|^5.0"
   }
 }
