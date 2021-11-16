@@ -18,7 +18,8 @@
     "psr-4": {
       "ByTIC\\Codeception\\Extensions\\": "src/_support/Extensions",
       "ByTIC\\Codeception\\Helper\\": "src/_support/Helper",
-      "ByTIC\\Codeception\\Page\\": "src/_support/Page"
+      "ByTIC\\Codeception\\Page\\": "src/_support/Page",
+      "ByTIC\\Codeception\\Acceptance\\": "src/acceptance"
     }
   },
   "require": {
