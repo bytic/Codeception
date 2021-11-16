@@ -1,12 +1,12 @@
 <?php
 
-namespace ByTIC\Codeception\Acceptance;
+namespace ByTIC\Codeception\Acceptance\Behaviours;
 
 use Codeception\Actor;
 
 /**
  * Trait HasTesterTrait
- * @package ByTIC\Codeception\Acceptance
+ * @package ByTIC\Codeception\Acceptance\Behaviours
  */
 trait HasTesterTrait
 {
@@ -18,7 +18,7 @@ trait HasTesterTrait
     /**
      * @return Actor
      */
-    public function getTester(): Actor
+    protected function getTester(): Actor
     {
         return $this->tester;
     }
@@ -26,7 +26,7 @@ trait HasTesterTrait
     /**
      * @param Actor $tester
      */
-    public function setTester(Actor $tester): void
+    protected function setTester(Actor $tester): void
     {
         $this->tester = $tester;
     }

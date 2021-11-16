@@ -38,9 +38,9 @@ trait TableTrait
     /**
      * @return null
      */
-    public function getTableLinks()
+    public function getTableLinks($reset = false)
     {
-        if ($this->tableLinks === null) {
+        if ($reset || $this->tableLinks === null) {
             $this->initTableLinks();
         }
 
