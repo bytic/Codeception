@@ -31,7 +31,7 @@
     "codeception/module-db": "^1.0 || ^2.0",
     "codeception/module-asserts": "^1.0 || ^2.0",
     "codeception/module-rest": "^1.0 || ^2.0",
-    "codeception/module-phpbrowser": "^1.0"
+    "codeception/module-phpbrowser": "^1.0 || ^2.0"
   },
   "require-dev": {
     "symfony/filesystem": "^4.0|^5.0"
