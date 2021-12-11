@@ -5,8 +5,7 @@ namespace ByTIC\Codeception\Helper\Traits;
 use Codeception\Module\Db;
 
 /**
- * Class QueryTrait
- * @package ByTIC\Common\Tests\Helper\Traits
+ * Class QueryTrait.
  */
 trait QueryTrait
 {
@@ -16,6 +15,7 @@ trait QueryTrait
      * @param $query
      *
      * @return mixed
+     *
      * @throws \Codeception\Exception\ModuleException
      */
     public function fetchOneFromQuery($query)
@@ -29,12 +29,13 @@ trait QueryTrait
      * @param $query
      *
      * @return mixed
+     *
      * @throws \Codeception\Exception\ModuleException
      */
     public function runSqlQuery($query)
     {
         /** @var Db $dbModule */
-        $dbModule = $this->getModule("Db");
+        $dbModule = $this->getModule('Db');
         /** @var \PDO $dbh */
         $dbh = $dbModule->dbh;
 

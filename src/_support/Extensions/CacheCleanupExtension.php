@@ -7,47 +7,10 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 
 /**
- * Class CacheCleanupExtension
- * @package KM42\Reviews\Tests\Extensions
- *
- * Can be configured in suite config:
- *
- * ```yaml
- * # acceptance.suite.yml
- * extensions:
- *     enabled:
- *         - ByTIC\Codeception\Extensions\CacheCleanupExtension:
- *             jobs:
- *                 bytic:
- *                     delete:
- *                           - /bootstrap/cache/routes
- *                           - /bootstrap/cache/migrations.php
- *                           - /storage/cache/dispatcher.php
- *                           - /storage/cache/@
- *                     empty:
- *                           - /storage/cache/db-metadata
- *                 job_name_2:
- *                     delete:
- *                          - file_path
- *                          - dir_path
- *                     empty:
- *                          - dir_path1
- *                          - dir_path2
- *             afterSuite: bytic
- *             beforeSuite:
- *                  - bytic
- *                  - job_name_2
- *             beforeTest:
- *                  - bytic
- *                  - job_name_2
- *             afterTest:
- *                  - bytic
- *                  - job_name_2
- * ```
+ * Class CacheCleanupExtension.
  */
 class CacheCleanupExtension extends \Codeception\Extension
 {
-
     /**
      * @var Filesystem
      */
@@ -71,12 +34,8 @@ class CacheCleanupExtension extends \Codeception\Extension
         $this->finder = new Finder();
     }
 
-
     // methods that handle events
 
-    /**
-     * @param \Codeception\Event\SuiteEvent $e
-     */
     public function afterSuite(\Codeception\Event\SuiteEvent $e)
     {
         $this->cleanupCache('afterSuite');
@@ -90,29 +49,22 @@ class CacheCleanupExtension extends \Codeception\Extension
         $this->cleanupCache('beforeSuite');
     }
 
-    /**
-     * @param \Codeception\Event\TestEvent $e
-     */
     public function beforeTest(\Codeception\Event\TestEvent $e)
     {
         $this->cleanupCache('beforeTest');
     }
 
-    /**
-     * @param \Codeception\Event\TestEvent $e
-     */
     public function afterTest(\Codeception\Event\TestEvent $e)
     {
         $this->cleanupCache('afterTest');
     }
-
 
     /**
      * @param string $type
      */
     protected function cleanupCache($type)
     {
-        $this->output->debug('[CacheCleanupExtension] Running ' . $type);
+        $this->output->debug('[CacheCleanupExtension] Running '.$type);
         if (!isset($this->config[$type])) {
             return;
         }
@@ -149,9 +101,11 @@ class CacheCleanupExtension extends \Codeception\Extension
         switch ($action) {
             case 'delete':
                 $this->runCleanupJobDelete($params);
+
                 return;
             case 'empty':
                 $this->runCleanupJobEmpty($params);
+
                 return;
         }
     }
@@ -162,7 +116,7 @@ class CacheCleanupExtension extends \Codeception\Extension
     protected function runCleanupJobDelete($params)
     {
         foreach ($params as $path) {
-            $fullPath = $this->getRootDir() . $path;
+            $fullPath = $this->getRootDir().$path;
             if (is_file($fullPath)) {
                 $this->filesystem->remove($fullPath);
             } elseif (is_dir($fullPath)) {
@@ -177,7 +131,7 @@ class CacheCleanupExtension extends \Codeception\Extension
     protected function runCleanupJobEmpty($params)
     {
         foreach ($params as $path) {
-            $fullPath = $this->getRootDir() . $path;
+            $fullPath = $this->getRootDir().$path;
             if (is_dir($fullPath)) {
                 $files = $this->finder->files()->in($fullPath);
                 $this->filesystem->remove($files);
