@@ -3,8 +3,7 @@
 namespace ByTIC\Codeception\Helper;
 
 /**
- * Class AcceptanceTrait
- * @package ByTIC\Common\Tests\Helper
+ * Class AcceptanceTrait.
  */
 trait AcceptanceTrait
 {

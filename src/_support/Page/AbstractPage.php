@@ -3,8 +3,7 @@
 namespace ByTIC\Codeception\Page;
 
 /**
- * Class AbstractPage
- * @package ByTIC\Codeception\Page
+ * Class AbstractPage.
  */
 abstract class AbstractPage
 {
@@ -16,9 +15,10 @@ abstract class AbstractPage
     /**
      * Basic route example for your current URL
      * You can append any additional parameter to URL
-     * and use it in tests like: Page\Edit::route('/123-post');
+     * and use it in tests like: Page\Edit::route('/123-post');.
      *
      * @param $param
+     *
      * @return string
      */
     public static function route($param)
@@ -60,7 +60,6 @@ abstract class AbstractPage
         return static::$basePath.static::$URL;
     }
 
-
     public function loadPage()
     {
         $this->getTester()->amOnPage(self::getURL());
@@ -75,7 +74,7 @@ abstract class AbstractPage
 
         $pageURI = self::getURL();
         $browserURI = $I->getCurrentUri();
-        $I->comment(" compare page [".$pageURI."][".$browserURI."]");
+        $I->comment(' compare page ['.$pageURI.']['.$browserURI.']');
         if (strlen($pageURI) == strlen($browserURI)) {
             $I->seeCurrentUrlEquals($pageURI);
         } else {

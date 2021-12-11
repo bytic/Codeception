@@ -1,5 +1,7 @@
 .idea/workspace.xml
 
+.php-cs-fixer.cache
+
 tests/_output/*
 vendor/*
 

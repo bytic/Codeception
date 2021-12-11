@@ -3,8 +3,7 @@
 namespace ByTIC\Codeception\Page\AbstractTraits;
 
 /**
- * Class TableTrait
- * @package ByTIC\Codeception\Page\AbstractTraits
+ * Class TableTrait.
  */
 trait TableTrait
 {
@@ -15,7 +14,7 @@ trait TableTrait
         $this->getTester()->seeElement(['css' => $this->getTablePath()]);
 
         $links = $this->getTableLinks();
-        $this->getTester()->assertGreaterThanOrEqual(1, count($links), "Check at least 1 table item defined");
+        $this->getTester()->assertGreaterThanOrEqual(1, count($links), 'Check at least 1 table item defined');
     }
 
     /**
@@ -40,7 +39,7 @@ trait TableTrait
      */
     public function getTableLinks($reset = false)
     {
-        if ($reset || $this->tableLinks === null) {
+        if ($reset || null === $this->tableLinks) {
             $this->initTableLinks();
         }
 

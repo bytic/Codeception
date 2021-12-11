@@ -6,8 +6,7 @@ use Codeception\Util\Fixtures;
 use RuntimeException;
 
 /**
- * Class QueryTrait
- * @package ByTIC\Common\Tests\Helper\Traits
+ * Class QueryTrait.
  */
 trait FixturesTrait
 {

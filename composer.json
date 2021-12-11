@@ -1,19 +1,36 @@
 {
   "name": "bytic/codeception",
-  "type": "library",
   "description": "Php Framework",
-  "homepage": "https://github.com/ByTIC/Codeception",
+  "license": "MIT",
+  "type": "library",
   "keywords": [
     "bytic",
     "codeception"
   ],
-  "license": "MIT",
   "authors": [
     {
       "name": "Gabriel Solomon",
       "email": "hello@gabrielsolomon.ro"
     }
   ],
+  "homepage": "https://github.com/ByTIC/Codeception",
+  "require": {
+    "php": "^7.4 || ^8.0",
+    "codeception/codeception": "^4.0",
+    "codeception/mockery-module": "^0.4",
+    "codeception/module-asserts": "^1.0 || ^2.0",
+    "codeception/module-db": "^1.0 || ^2.0",
+    "codeception/module-phpbrowser": "^1.0 || ^2.0",
+    "codeception/module-rest": "^1.0 || ^2.0",
+    "codeception/specify": "^1.4 || ^2.0",
+    "codeception/verify": "^2.0"
+  },
+  "require-dev": {
+    "bytic/phpqatools": "dev-develop",
+    "symfony/filesystem": "^4.0 || ^5.0 || ^6.0"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "autoload": {
     "psr-4": {
       "ByTIC\\Codeception\\Extensions\\": "src/_support/Extensions",
@@ -22,18 +39,27 @@
       "ByTIC\\Codeception\\Acceptance\\": "src/acceptance"
     }
   },
-  "require": {
-    "php": "^7.4|^8.0",
-    "codeception/codeception": "^4.0",
-    "codeception/mockery-module": "^0.4",
-    "codeception/specify": "^1.4 || ^2.0",
-    "codeception/verify": "^2.0",
-    "codeception/module-db": "^1.0 || ^2.0",
-    "codeception/module-asserts": "^1.0 || ^2.0",
-    "codeception/module-rest": "^1.0 || ^2.0",
-    "codeception/module-phpbrowser": "^1.0 || ^2.0"
+  "config": {
+    "sort-packages": true
   },
-  "require-dev": {
-    "symfony/filesystem": "^4.0|^5.0"
+  "scripts": {
+    "ci:composer:validate": "@composer validate",
+    "ci:php": [
+      "@ci:php:lint",
+      "@ci:php:cs",
+      "@ci:php:stan",
+      "@ci:php:unit"
+    ],
+    "ci:php:cs": "php-cs-fixer fix -v --dry-run --using-cache no --diff",
+    "ci:php:lint": "phplint --no-progress",
+    "ci:php:stan": "phpstan analyse --no-progress",
+    "ci:php:unit": "phpunit",
+    "fix": [
+      "@fix:php"
+    ],
+    "fix:php": [
+      "@fix:php:cs"
+    ],
+    "fix:php:cs": "php-cs-fixer fix"
   }
 }
