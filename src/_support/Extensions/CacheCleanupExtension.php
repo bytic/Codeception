@@ -1,15 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Codeception\Extensions;
 
+use Codeception\Event\SuiteEvent;
+use Codeception\Event\TestEvent;
 use Codeception\Events;
+use Codeception\Extension;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 
 /**
  * Class CacheCleanupExtension.
  */
-class CacheCleanupExtension extends \Codeception\Extension
+class CacheCleanupExtension extends Extension
 {
     /**
      * @var Filesystem
@@ -27,6 +32,10 @@ class CacheCleanupExtension extends \Codeception\Extension
         Events::TEST_AFTER => 'afterTest',
     ];
 
+    /**
+     * @param $config
+     * @param $options
+     */
     public function __construct($config, $options)
     {
         parent::__construct($config, $options);
@@ -36,25 +45,25 @@ class CacheCleanupExtension extends \Codeception\Extension
 
     // methods that handle events
 
-    public function afterSuite(\Codeception\Event\SuiteEvent $e)
+    public function afterSuite(SuiteEvent $e)
     {
         $this->cleanupCache('afterSuite');
     }
 
     /**
-     * @param \Codeception\Event\TestEvent $e
+     * @param TestEvent $e
      */
-    public function beforeSuite(\Codeception\Event\SuiteEvent $e)
+    public function beforeSuite(SuiteEvent $e)
     {
         $this->cleanupCache('beforeSuite');
     }
 
-    public function beforeTest(\Codeception\Event\TestEvent $e)
+    public function beforeTest(TestEvent $e)
     {
         $this->cleanupCache('beforeTest');
     }
 
-    public function afterTest(\Codeception\Event\TestEvent $e)
+    public function afterTest(TestEvent $e)
     {
         $this->cleanupCache('afterTest');
     }

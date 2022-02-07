@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Codeception\Page\AbstractTraits;
 
 use ByTIC\Codeception\Helper\AcceptanceTrait;
+use Codeception\Actor;
 
 /**
  * Class FormTrait.
@@ -50,7 +53,7 @@ trait FormTrait
     }
 
     /**
-     * @return AcceptanceTrait|\Codeception\Actor;
+     * @return AcceptanceTrait|Actor;
      */
     abstract protected function getTester();
 

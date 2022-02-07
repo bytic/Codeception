@@ -26,6 +26,7 @@
     "codeception/verify": "^2.0"
   },
   "require-dev": {
+    "ext-pdo": "*",
     "bytic/phpqatools": "dev-develop",
     "symfony/filesystem": "^4.0 || ^5.0 || ^6.0"
   },
@@ -42,24 +43,5 @@
   "config": {
     "sort-packages": true
   },
-  "scripts": {
-    "ci:composer:validate": "@composer validate",
-    "ci:php": [
-      "@ci:php:lint",
-      "@ci:php:cs",
-      "@ci:php:stan",
-      "@ci:php:unit"
-    ],
-    "ci:php:cs": "php-cs-fixer fix -v --dry-run --using-cache no --diff",
-    "ci:php:lint": "phplint --no-progress",
-    "ci:php:stan": "phpstan analyse --no-progress",
-    "ci:php:unit": "phpunit",
-    "fix": [
-      "@fix:php"
-    ],
-    "fix:php": [
-      "@fix:php:cs"
-    ],
-    "fix:php:cs": "php-cs-fixer fix"
-  }
+  "scripts": {}
 }

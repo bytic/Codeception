@@ -1,8 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Codeception\Helper\Traits;
 
+use Codeception\Exception\ModuleException;
 use Codeception\Module\Db;
+use PDO;
 
 /**
  * Class QueryTrait.
@@ -16,7 +20,7 @@ trait QueryTrait
      *
      * @return mixed
      *
-     * @throws \Codeception\Exception\ModuleException
+     * @throws ModuleException
      */
     public function fetchOneFromQuery($query)
     {
@@ -30,13 +34,13 @@ trait QueryTrait
      *
      * @return mixed
      *
-     * @throws \Codeception\Exception\ModuleException
+     * @throws ModuleException
      */
     public function runSqlQuery($query)
     {
         /** @var Db $dbModule */
         $dbModule = $this->getModule('Db');
-        /** @var \PDO $dbh */
+        /** @var PDO $dbh */
         $dbh = $dbModule->dbh;
 
         return $dbh->query($query);

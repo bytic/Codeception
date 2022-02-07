@@ -1,7 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Codeception\Helper\Traits;
 
+use Codeception\Exception\ModuleException;
+use Codeception\Module;
 use Codeception\Module\PhpBrowser;
 
 /**
@@ -16,17 +20,17 @@ trait BrowserTrait
      * @param $url
      * @param $post
      *
-     * @throws \Codeception\Exception\ModuleException
+     * @throws ModuleException
      */
     public function loadPage($method, $url, $post)
     {
-        return $this->getBrowserModule()->_loadPage($method, $url, $post);
+        $this->getBrowserModule()->_loadPage($method, $url, $post);
     }
 
     /**
-     * @return \Codeception\Module|PhpBrowser
+     * @return Module|PhpBrowser
      *
-     * @throws \Codeception\Exception\ModuleException
+     * @throws ModuleException
      */
     protected function getBrowserModule()
     {
@@ -38,7 +42,7 @@ trait BrowserTrait
      *
      * @return mixed
      *
-     * @throws \Codeception\Exception\ModuleException
+     * @throws ModuleException
      */
     public function getCurrentUriParam($name)
     {
@@ -52,7 +56,7 @@ trait BrowserTrait
     /**
      * @return mixed
      *
-     * @throws \Codeception\Exception\ModuleException
+     * @throws ModuleException
      */
     public function getCurrentUri()
     {
@@ -62,7 +66,7 @@ trait BrowserTrait
     /**
      * @return mixed
      *
-     * @throws \Codeception\Exception\ModuleException
+     * @throws ModuleException
      */
     public function getCurrentUrl()
     {
@@ -72,7 +76,7 @@ trait BrowserTrait
     /**
      * @param $expected
      *
-     * @throws \Codeception\Exception\ModuleException
+     * @throws ModuleException
      */
     public function seeFullUrlEquals($expected)
     {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Codeception\Helper\Traits;
 
 use Codeception\Util\Fixtures;

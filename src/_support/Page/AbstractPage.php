@@ -1,37 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Codeception\Page;
+
+use Codeception\Actor;
 
 /**
  * Class AbstractPage.
  */
 abstract class AbstractPage
 {
-    public static $URL = null;
-
-    // incl_Abstractude url of current page
-    public static $basePath = '';
+    use AbstractTraits\CanNavigateTrait;
 
     /**
-     * Basic route example for your current URL
-     * You can append any additional parameter to URL
-     * and use it in tests like: Page\Edit::route('/123-post');.
-     *
-     * @param $param
-     *
-     * @return string
+     * @var Actor;
      */
-    public static function route($param)
-    {
-        return static::$URL.$param;
-    }
+    protected Actor $acceptanceTester;
 
-    /**
-     * @var \Codeception\Actor;
-     */
-    protected $acceptanceTester;
-
-    public function __construct(\Codeception\Actor $I)
+    public function __construct(Actor $I)
     {
         $this->acceptanceTester = $I;
 
@@ -43,9 +30,9 @@ abstract class AbstractPage
     }
 
     /**
-     * @return \Codeception\Actor;
+     * @return Actor;
      */
-    protected function getTester()
+    protected function getTester(): Actor
     {
         return $this->acceptanceTester;
     }
@@ -55,14 +42,9 @@ abstract class AbstractPage
         $this->getTester()->see('', 'div.alert-danger');
     }
 
-    public static function getURL()
-    {
-        return static::$basePath.static::$URL;
-    }
-
     public function loadPage()
     {
-        $this->getTester()->amOnPage(self::getURL());
+        $this->getTester()->amOnPage(self::getUrl());
     }
 
     /**
@@ -70,15 +52,16 @@ abstract class AbstractPage
      */
     public function checkOnURL()
     {
-        $I = $this->getTester();
+        $tester = $this->getTester();
 
-        $pageURI = self::getURL();
-        $browserURI = $I->getCurrentUri();
-        $I->comment(' compare page ['.$pageURI.']['.$browserURI.']');
+        $pageURI = self::getUrl();
+        $browserURI = $tester->getCurrentUri();
+        $tester->comment(' compare page [' . $pageURI . '][' . $browserURI . ']');
+
         if (strlen($pageURI) == strlen($browserURI)) {
-            $I->seeCurrentUrlEquals($pageURI);
+            $tester->seeCurrentUrlEquals($pageURI);
         } else {
-            $I->seeCurrentUrlMatches('~'.preg_quote($pageURI).'~');
+            $tester->seeCurrentUrlMatches('~' . preg_quote($pageURI) . '~');
         }
 
         return $this;
@@ -88,31 +71,23 @@ abstract class AbstractPage
     {
     }
 
-    public function testPage()
+    public function loadAndTestPage()
     {
         $this->loadPage();
         $this->checkPage();
+    }
+
+    /**
+     * @deprecated Use loadAndTestPage instead
+     */
+    public function testPage()
+    {
+        $this->loadAndTestPage();
     }
 
     public function checkPage()
     {
         $this->checkOnURL();
         $this->checkElements();
-    }
-
-    /**
-     * @param $name
-     * @param $value
-     */
-    public function addURLQueryParams($name, $value)
-    {
-        $urlParts = parse_url(static::$URL);
-        if (isset($urlParts['query'])) {
-            parse_str($urlParts['query'], $params);
-        } else {
-            $params = [];
-        }
-        $params[$name] = $value;
-        static::$URL = $urlParts['path'].'?'.http_build_query($params);
     }
 }

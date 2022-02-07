@@ -1,6 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Codeception\Helper\Traits;
+
+use Codeception\Exception\ModuleException;
+use Codeception\Module;
 
 /**
  * Class QueryTrait.
@@ -10,9 +15,9 @@ trait AbstractTrait
     /**
      * @param string $name
      *
-     * @return \Codeception\Module
+     * @return Module
      *
-     * @throws \Codeception\Exception\ModuleException
+     * @throws ModuleException
      */
     abstract protected function getModule($name);
 }

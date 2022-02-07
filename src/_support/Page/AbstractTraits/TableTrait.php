@@ -1,6 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ByTIC\Codeception\Page\AbstractTraits;
+
+use Codeception\Actor;
 
 /**
  * Class TableTrait.
@@ -8,6 +12,21 @@ namespace ByTIC\Codeception\Page\AbstractTraits;
 trait TableTrait
 {
     protected $tableLinks = null;
+
+    protected $tablePath = null;
+
+    protected $linkPath = null;
+
+    /**
+     * @param $tablePath
+     * @param $linkPath
+     * @return void
+     */
+    protected function addTable($tablePath, $linkPath)
+    {
+        $this->tablePath = $tablePath;
+        $this->linkPath = $linkPath;
+    }
 
     public function checkTable()
     {
@@ -17,10 +36,7 @@ trait TableTrait
         $this->getTester()->assertGreaterThanOrEqual(1, count($links), 'Check at least 1 table item defined');
     }
 
-    /**
-     * @return \ByTIC\Common\Tests\AcceptanceTester;
-     */
-    abstract protected function getTester();
+    abstract protected function getTester(): Actor;
 
     /**
      * @return null
