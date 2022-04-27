@@ -20,7 +20,7 @@
     "codeception/mockery-module": "^0.5",
     "codeception/module-asserts": "^2.0",
     "codeception/module-db": "^2.0 || ^3.0",
-    "codeception/module-phpbrowser": "^2.0",
+    "codeception/module-phpbrowser": "^2.0 || ^3.0",
     "codeception/module-rest": "^3.0",
     "codeception/specify": "^2.0",
     "codeception/verify": "^2.0"
