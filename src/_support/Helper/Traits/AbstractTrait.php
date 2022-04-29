@@ -19,5 +19,5 @@ trait AbstractTrait
      *
      * @throws ModuleException
      */
-    abstract protected function getModule($name);
+    abstract protected function getModule(string $name);
 }
