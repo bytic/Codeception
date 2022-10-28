@@ -57,8 +57,11 @@ trait TableTrait
     /**
      * @return null
      */
-    public function getTableLinks($reset = false, $name = null)
+    public function getTableLinks($name = null, $reset = null)
     {
+        if (is_bool($name) && $reset == null) {
+            return $this->getTableOrFail(null)->getLinks($name);
+        }
         return $this->getTableOrFail($name)->getLinks($reset);
     }
 
@@ -78,9 +81,13 @@ trait TableTrait
         return $this->getTableOrFail($name)->getItemsPath();
     }
 
+    /**
+     * @param $name
+     * @return void
+     */
     public function clickTableFirstLink($name = null)
     {
-        $links = $this->getTableOrFail($name)->getItemsPath();
+        $links = $this->getTableOrFail($name)->getLinks();
         $link = reset($links);
         $this->getTester()->amOnUrl($link);
     }

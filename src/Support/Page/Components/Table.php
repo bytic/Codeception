@@ -61,7 +61,7 @@ class Table
      * @param bool $reset
      * @return array
      */
-    public function getLinks(bool $reset = false)
+    public function getLinks(?bool $reset = false)
     {
         if ($reset || $this->links == null) {
             $this->links = $this->tester->grabMultiple($this->getFullPath(), 'href');
