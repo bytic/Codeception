@@ -16,7 +16,7 @@
   "homepage": "https://github.com/ByTIC/Codeception",
   "require": {
     "php": "^7.4 || ^8.0",
-    "codeception/codeception": "^5.0.0",
+    "codeception/codeception": "^5.0",
     "codeception/mockery-module": "^0.5",
     "codeception/module-asserts": "^2.0 || ^3.0",
     "codeception/module-db": "^2.0 || ^3.0",
@@ -27,17 +27,18 @@
   },
   "require-dev": {
     "ext-pdo": "*",
-    "bytic/phpqatools": "dev-develop",
+    "bytic/phpqatools": "^1.0",
     "symfony/filesystem": "^4.0 || ^5.0 || ^6.0"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "autoload": {
     "psr-4": {
-      "ByTIC\\Codeception\\Extensions\\": "src/_support/Extensions",
-      "ByTIC\\Codeception\\Helper\\": "src/_support/Helper",
-      "ByTIC\\Codeception\\Page\\": "src/_support/Page",
-      "ByTIC\\Codeception\\Acceptance\\": "src/acceptance"
+      "ByTIC\\Codeception\\Support\\": "src/Support",
+      "ByTIC\\Codeception\\Extensions\\": "src/Extensions",
+      "ByTIC\\Codeception\\Helper\\": "src/tests/_support/Helper",
+      "ByTIC\\Codeception\\Page\\": "src/tests/_support/Page",
+      "ByTIC\\Codeception\\Acceptance\\": "src/tests/acceptance"
     }
   },
   "config": {

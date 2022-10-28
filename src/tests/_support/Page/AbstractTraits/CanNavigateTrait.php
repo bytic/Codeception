@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace ByTIC\Codeception\Page\AbstractTraits;
 
+/**
+ *
+ */
 trait CanNavigateTrait
 {
     public static ?string $url = null;
