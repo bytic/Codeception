@@ -42,13 +42,13 @@
     }
   },
   "config": {
-    "sort-packages": true,
     "allow-plugins": {
       "dealerdirect/phpcodesniffer-composer-installer": true,
       "ergebnis/composer-normalize": true,
       "phpstan/extension-installer": true,
       "bytic/phpqatools": true
-    }
+    },
+    "sort-packages": true
   },
   "scripts": {}
 }

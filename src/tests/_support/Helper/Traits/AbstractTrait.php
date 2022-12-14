@@ -13,8 +13,6 @@ use Codeception\Module;
 trait AbstractTrait
 {
     /**
-     * @param string $name
-     *
      * @return Module
      *
      * @throws ModuleException

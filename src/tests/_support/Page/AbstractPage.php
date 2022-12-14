@@ -6,6 +6,8 @@ namespace ByTIC\Codeception\Page;
 
 use Codeception\Actor;
 
+use function strlen;
+
 /**
  * Class AbstractPage.
  */

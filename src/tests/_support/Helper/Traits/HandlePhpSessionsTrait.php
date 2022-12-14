@@ -6,6 +6,9 @@ namespace ByTIC\Codeception\Helper\Traits;
 
 use Exception;
 
+use function ini_get;
+use function strlen;
+
 /**
  * Class HandlePhpSessionsTrait.
  *
@@ -18,14 +21,12 @@ trait HandlePhpSessionsTrait
     public function getSessionData(): array
     {
         $cookie = $this->getBrowserModule()->grabCookie('PHPSESSID'); // according to php.ini: session.name
-        $sessionFile = file_get_contents(ini_get('session.save_path').'/sess_'.$cookie);
+        $sessionFile = file_get_contents(ini_get('session.save_path') . '/sess_' . $cookie);
 
         return self::unserializePhp($sessionFile);
     }
 
     /**
-     * @param $session_data
-     *
      * @throws Exception
      */
     private static function unserializePhp($session_data): array

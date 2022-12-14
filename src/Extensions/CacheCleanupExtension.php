@@ -11,6 +11,8 @@ use Codeception\Extension;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 
+use function is_string;
+
 /**
  * Class CacheCleanupExtension.
  */
@@ -32,10 +34,6 @@ class CacheCleanupExtension extends Extension
         Events::TEST_AFTER => 'afterTest',
     ];
 
-    /**
-     * @param $config
-     * @param $options
-     */
     public function __construct($config, $options)
     {
         parent::__construct($config, $options);
@@ -73,7 +71,7 @@ class CacheCleanupExtension extends Extension
      */
     protected function cleanupCache($type)
     {
-        $this->output->debug('[CacheCleanupExtension] Running '.$type);
+        $this->output->debug('[CacheCleanupExtension] Running ' . $type);
         if (!isset($this->config[$type])) {
             return;
         }
@@ -87,9 +85,6 @@ class CacheCleanupExtension extends Extension
         }
     }
 
-    /**
-     * @param $name
-     */
     protected function runCleanupJob($name)
     {
         if (!isset($this->config['jobs'][$name])) {
@@ -101,10 +96,6 @@ class CacheCleanupExtension extends Extension
         }
     }
 
-    /**
-     * @param $action
-     * @param $params
-     */
     protected function runCleanupJobAction($action, $params)
     {
         switch ($action) {
@@ -119,13 +110,10 @@ class CacheCleanupExtension extends Extension
         }
     }
 
-    /**
-     * @param $params
-     */
     protected function runCleanupJobDelete($params)
     {
         foreach ($params as $path) {
-            $fullPath = $this->getRootDir().$path;
+            $fullPath = $this->getRootDir() . $path;
             if (is_file($fullPath)) {
                 $this->filesystem->remove($fullPath);
             } elseif (is_dir($fullPath)) {
@@ -134,13 +122,10 @@ class CacheCleanupExtension extends Extension
         }
     }
 
-    /**
-     * @param $params
-     */
     protected function runCleanupJobEmpty($params)
     {
         foreach ($params as $path) {
-            $fullPath = $this->getRootDir().$path;
+            $fullPath = $this->getRootDir() . $path;
             if (is_dir($fullPath)) {
                 $files = $this->finder->files()->in($fullPath);
                 $this->filesystem->remove($files);

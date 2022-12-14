@@ -6,9 +6,8 @@ namespace ByTIC\Codeception\Support\Page\Components;
 
 use Codeception\Actor;
 
-/**
- *
- */
+use function count;
+
 class Table
 {
     public const DEFAULT_NAME = '__main';
@@ -23,11 +22,6 @@ class Table
 
     protected $minItems = 1;
 
-    /**
-     * @param $name
-     * @param $path
-     * @param $itemsPath
-     */
     public function __construct(Actor $tester, string $path, string $itemsPath, $name = null)
     {
         $this->tester = $tester;
@@ -59,13 +53,15 @@ class Table
 
     /**
      * @param bool $reset
+     *
      * @return array
      */
     public function getLinks(?bool $reset = false)
     {
-        if ($reset || $this->links == null) {
+        if ($reset || null == $this->links) {
             $this->links = $this->tester->grabMultiple($this->getFullPath(), 'href');
         }
+
         return $this->links;
     }
 

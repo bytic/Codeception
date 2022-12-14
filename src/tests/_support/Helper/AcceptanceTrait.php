@@ -9,7 +9,7 @@ namespace ByTIC\Codeception\Helper;
  */
 trait AcceptanceTrait
 {
-    use Traits\QueryTrait;
-    use Traits\FixturesTrait;
     use Traits\BrowserTrait;
+    use Traits\FixturesTrait;
+    use Traits\QueryTrait;
 }

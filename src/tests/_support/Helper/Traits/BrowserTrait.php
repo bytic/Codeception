@@ -8,6 +8,8 @@ use Codeception\Exception\ModuleException;
 use Codeception\Module;
 use Codeception\Module\PhpBrowser;
 
+use const PHP_URL_QUERY;
+
 /**
  * Class UriTrait.
  */
@@ -16,10 +18,6 @@ trait BrowserTrait
     use AbstractTrait;
 
     /**
-     * @param $method
-     * @param $url
-     * @param $post
-     *
      * @throws ModuleException
      */
     public function loadPage($method, $url, $post)
@@ -38,8 +36,6 @@ trait BrowserTrait
     }
 
     /**
-     * @param $name
-     *
      * @return mixed
      *
      * @throws ModuleException
@@ -74,8 +70,6 @@ trait BrowserTrait
     }
 
     /**
-     * @param $expected
-     *
      * @throws ModuleException
      */
     public function seeFullUrlEquals($expected)

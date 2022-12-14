@@ -16,8 +16,6 @@ trait QueryTrait
     use AbstractTrait;
 
     /**
-     * @param $query
-     *
      * @return mixed
      *
      * @throws ModuleException
@@ -30,8 +28,6 @@ trait QueryTrait
     }
 
     /**
-     * @param $query
-     *
      * @return mixed
      *
      * @throws ModuleException

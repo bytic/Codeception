@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace ByTIC\Codeception\Page\AbstractTraits;
 
-/**
- *
- */
 trait CanNavigateTrait
 {
     public static ?string $url = null;
@@ -18,8 +15,6 @@ trait CanNavigateTrait
      * Basic route example for your current URL
      * You can append any additional parameter to URL
      * and use it in tests like: Page\Edit::route('/123-post');.
-     *
-     * @param $param
      *
      * @return string
      */
@@ -33,10 +28,6 @@ trait CanNavigateTrait
         return static::$basePath . static::$url;
     }
 
-    /**
-     * @param $name
-     * @param $value
-     */
     public function addURLQueryParams($name, $value)
     {
         $urlParts = parse_url(static::$url);

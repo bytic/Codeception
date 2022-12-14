@@ -7,6 +7,9 @@ namespace ByTIC\Codeception\Page\AbstractTraits;
 use ByTIC\Codeception\Helper\AcceptanceTrait;
 use Codeception\Actor;
 
+use function is_array;
+use function is_string;
+
 /**
  * Class FormTrait.
  */
@@ -73,9 +76,6 @@ trait FormTrait
     /**
      * Sets a form field value based on field type.
      *
-     * @param $field
-     * @param $value
-     *
      * @return mixed
      */
     public function setFieldValue($field, $value)
@@ -93,7 +93,6 @@ trait FormTrait
     }
 
     /**
-     * @param $field
      * @param null $form
      *
      * @return mixed
@@ -104,8 +103,6 @@ trait FormTrait
     }
 
     /**
-     * @param $field
-     * @param $param
      * @param null $form
      *
      * @return mixed
@@ -118,8 +115,6 @@ trait FormTrait
     }
 
     /**
-     * @param $field
-     * @param $value
      * @param null $form
      *
      * @return mixed|null
@@ -133,7 +128,6 @@ trait FormTrait
     }
 
     /**
-     * @param $field
      * @param null $form
      *
      * @return mixed
@@ -144,7 +138,6 @@ trait FormTrait
     }
 
     /**
-     * @param $field
      * @param null $form
      *
      * @return mixed|null
@@ -158,8 +151,6 @@ trait FormTrait
     }
 
     /**
-     * @param $field
-     * @param $value
      * @param null $form
      *
      * @return mixed|null
@@ -183,10 +174,6 @@ trait FormTrait
         $this->getTester()->submitForm($form['path'], $params);
     }
 
-    /**
-     * @param $name
-     * @param $value
-     */
     public function setFieldFormData($name, $value)
     {
         $this->formData[$name] = $value;
@@ -205,8 +192,6 @@ trait FormTrait
     /**
      * sets a field value from data object.
      *
-     * @param $name
-     *
      * @return mixed
      */
     public function setFieldFromData($name)
@@ -217,8 +202,6 @@ trait FormTrait
     }
 
     /**
-     * @param $name
-     *
      * @return null
      */
     public function getFieldFormData($name)
@@ -227,8 +210,6 @@ trait FormTrait
     }
 
     /**
-     * @param $field
-     * @param $count
      * @param null $form
      */
     public function selectOptionCountForm($field, $count, $form = null)
@@ -236,12 +217,11 @@ trait FormTrait
         $form = $this->initFormName($form);
         $path = $this->getFieldFormPath($field, $form);
 
-        $option = $this->getTester()->grabTextFrom($path.' option:nth-child('.$count.')');
+        $option = $this->getTester()->grabTextFrom($path . ' option:nth-child(' . $count . ')');
         $this->selectOptionForm($field, $option);
     }
 
     /**
-     * @param $path
      * @param null $name
      */
     protected function addForm($path, $name = null)
@@ -271,8 +251,6 @@ trait FormTrait
     }
 
     /**
-     * @param $field
-     * @param $params
      * @param null $name
      *
      * @return $this
@@ -283,9 +261,6 @@ trait FormTrait
     }
 
     /**
-     * @param $field
-     * @param $type
-     * @param $params
      * @param null $name
      *
      * @return $this
@@ -303,8 +278,6 @@ trait FormTrait
     }
 
     /**
-     * @param $field
-     * @param $params
      * @param null $name
      *
      * @return $this
@@ -315,8 +288,6 @@ trait FormTrait
     }
 
     /**
-     * @param $field
-     * @param $params
      * @param null $name
      *
      * @return $this
@@ -327,8 +298,6 @@ trait FormTrait
     }
 
     /**
-     * @param $field
-     * @param $params
      * @param null $name
      *
      * @return $this
@@ -339,8 +308,6 @@ trait FormTrait
     }
 
     /**
-     * @param $field
-     * @param $params
      * @param null $name
      *
      * @return $this
@@ -351,8 +318,6 @@ trait FormTrait
     }
 
     /**
-     * @param $field
-     * @param $params
      * @param null $name
      *
      * @return $this

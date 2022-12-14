@@ -7,6 +7,8 @@ namespace ByTIC\Codeception\Helper\Traits;
 use Codeception\Util\Fixtures;
 use RuntimeException;
 
+use function is_array;
+
 /**
  * Class QueryTrait.
  */
@@ -14,10 +16,6 @@ trait FixturesTrait
 {
     use AbstractTrait;
 
-    /**
-     * @param $name
-     * @param $value
-     */
     public function pushFixture($name, $value)
     {
         if ($this->hasFixture($name)) {
@@ -31,8 +29,6 @@ trait FixturesTrait
     }
 
     /**
-     * @param $name
-     *
      * @return bool
      */
     public function hasFixture($name)
@@ -47,8 +43,6 @@ trait FixturesTrait
     }
 
     /**
-     * @param $name
-     *
      * @return mixed
      */
     public function getFixture($name)
@@ -56,10 +50,6 @@ trait FixturesTrait
         return Fixtures::get($name);
     }
 
-    /**
-     * @param $name
-     * @param $value
-     */
     public function addFixture($name, $value)
     {
         Fixtures::add($name, $value);

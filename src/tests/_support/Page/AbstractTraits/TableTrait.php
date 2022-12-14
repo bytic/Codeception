@@ -7,6 +7,8 @@ namespace ByTIC\Codeception\Page\AbstractTraits;
 use ByTIC\Codeception\Support\Page\Components\Table;
 use Codeception\Actor;
 
+use function is_bool;
+
 /**
  * Class TableTrait.
  */
@@ -24,9 +26,8 @@ trait TableTrait
 //    protected $linkPath = [];
 
     /**
-     * @param string $tablePath
-     * @param string $linkPath
      * @param null $name
+     *
      * @return Table
      */
     protected function addTable(string $tablePath, string $linkPath, $name = null)
@@ -34,11 +35,11 @@ trait TableTrait
         $name = $this->tableName($name);
         $table = new Table($this->getTester(), $tablePath, $linkPath, $name);
         $this->tables[$name] = $table;
+
         return $table;
     }
 
     /**
-     * @param $name
      * @return void
      */
     public function checkTable($name = null)
@@ -59,9 +60,10 @@ trait TableTrait
      */
     public function getTableLinks($name = null, $reset = null)
     {
-        if (is_bool($name) && $reset == null) {
+        if (is_bool($name) && null == $reset) {
             return $this->getTableOrFail(null)->getLinks($name);
         }
+
         return $this->getTableOrFail($name)->getLinks($reset);
     }
 
@@ -82,7 +84,6 @@ trait TableTrait
     }
 
     /**
-     * @param $name
      * @return void
      */
     public function clickTableFirstLink($name = null)
@@ -93,7 +94,6 @@ trait TableTrait
     }
 
     /**
-     * @param $name
      * @return Table|void
      */
     public function getTableOrFail($name = null)
@@ -102,16 +102,16 @@ trait TableTrait
         if ($table) {
             return $table;
         }
-        $this->getTester()->fail('table ' . $name . ' not defined for [' . get_class($this) . ']');
+        $this->getTester()->fail('table ' . $name . ' not defined for [' . static::class . ']');
     }
 
     /**
-     * @param $name
      * @return Table|null
      */
     public function getTable($name = null)
     {
         $name = $this->tableName($name);
+
         return $this->tables[$name] ?? null;
     }
 
