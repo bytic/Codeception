@@ -26,7 +26,7 @@ trait QueryTrait
     {
         $result = $this->runSqlQuery($query);
 
-        return $result->fetch();
+        return $result->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -40,6 +40,7 @@ trait QueryTrait
     {
         /** @var Db $dbModule */
         $dbModule = $this->getModule('Db');
+
         /** @var PDO $dbh */
         $dbh = $dbModule->dbh;
 
