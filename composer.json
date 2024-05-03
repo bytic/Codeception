@@ -22,13 +22,13 @@
     "codeception/module-db": "^2.0 || ^3.0",
     "codeception/module-phpbrowser": "^2.0 || ^3.0",
     "codeception/module-rest": "^3.0",
-    "codeception/specify": "^2.0",
-    "codeception/verify": "^2.0"
+    "codeception/verify": "^2.0||^3.0"
   },
   "require-dev": {
     "ext-pdo": "*",
+    "codeception/specify": "^2.0",
     "bytic/phpqatools": "^1.0",
-    "symfony/filesystem": "^4.0 || ^5.0 || ^6.0"
+    "symfony/filesystem": "^5.0 || ^6.0 || ^7.0"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
