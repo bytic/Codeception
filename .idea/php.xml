@@ -158,6 +158,11 @@
       <path value="$PROJECT_DIR$/vendor/fidry/cpu-core-counter" />
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/codeception/codeception" />
+      <path value="$PROJECT_DIR$/vendor/masterminds/html5" />
+      <path value="$PROJECT_DIR$/vendor/ergebnis/json-pointer" />
+      <path value="$PROJECT_DIR$/vendor/ergebnis/json" />
+      <path value="$PROJECT_DIR$/vendor/spatie/array-to-xml" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4">
